@@ -14,8 +14,7 @@ import java.util.Optional;
 @Service
 public class MovieService {
 
-    private MovieReposiory movieReposiory;
-
+     private final MovieReposiory movieReposiory;
     @Autowired
     public MovieService(MovieReposiory movieReposiory) {
         this.movieReposiory = movieReposiory;
@@ -24,8 +23,10 @@ public class MovieService {
     public List<Movie> allmovies(){
         return movieReposiory.findAll();
     }
-
-    public Optional<Movie> getMovieById(ObjectId id){
-        return movieReposiory.findById(id);
+    public Optional<Movie> singleMovie(String imdbId){
+        return movieReposiory.findMovieByimdbId(imdbId);
     }
+
+
+
 }
