@@ -7,7 +7,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "reviews_table")
+@Document(collection = "reviews_table")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

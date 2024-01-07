@@ -11,11 +11,11 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import java.util.List;
 
 
-@Document(collation = "movies_table")
+@Document(collection = "movies_table")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class movie {
+public class Movie {
     @Id
     private ObjectId movieId;
     private String title;
@@ -24,6 +24,7 @@ public class movie {
     private List<String> genres;
     private String poster;
     private List<String> backdrops;
-    @DocumentReference
+
+    @DocumentReference // this annotation will make sure only the id's of Review is stored only in movies_table and review class will be of different table (collection which is reviews_table)
     private List<Review> reviewIds;
 }
